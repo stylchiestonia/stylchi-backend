@@ -61,6 +61,9 @@ const expertSchema = new Schema({
     updatedAt: {
         type: Date
     },
+    updatedBy: {
+        type: String
+    },
     venueName: {
         type: String
     },
