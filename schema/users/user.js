@@ -34,6 +34,7 @@ const UserSchema = new Schema({
     role: {
         type: String,
         enum: ['expert', 'customer', 'admin'],
+        required: true
     },
     gender: {
         type: String,

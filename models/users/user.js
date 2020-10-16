@@ -78,7 +78,6 @@ getfilteredExperts = (filter) => {
     });
 
 };
-// create expert
 
 // update expert
 updateExpert = (expert) => {
