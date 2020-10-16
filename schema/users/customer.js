@@ -84,4 +84,4 @@ const customerSchema = new Schema({
         type: String
     }
 });
-module.exports = expert = mongoose.model("customers", customerSchema);
+module.exports = customer = mongoose.model("customer", customerSchema);

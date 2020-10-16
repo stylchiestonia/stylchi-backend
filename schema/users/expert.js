@@ -101,4 +101,4 @@ const expertSchema = new Schema({
         type: String
     }
 });
-module.exports = expert = mongoose.model("experts", expertSchema);
+module.exports = expert = mongoose.model("expert", expertSchema);
