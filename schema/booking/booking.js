@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const serviceSchema = new Schema({
+const bookingSchema = new Schema({
     customerId: {
         type: String,
         required: true
@@ -55,4 +55,4 @@ const serviceSchema = new Schema({
     }
 });
 
-module.exports = service = mongoose.model("service", serviceSchema);
+module.exports = booking = mongoose.model("booking", bookingSchema);
