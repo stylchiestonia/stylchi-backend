@@ -1,16 +1,21 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const categorySchema = new Schema({
-    categoryName: {
+const RatingSchema = new Schema({
+    expertId: {
+        type: String,
+        required: true
+    },
+    rating: {
+        type: String,
+        required: true
+    },
+    serviceId: {
         type: String,
         required: true
     },
     createdBy: {
-        type: String,
-        required: true
-    },
-    updatedBy: {
-        type: String
+        type: Date,
+        default: Date.now
     },
     createdAt: {
         type: Date,
@@ -19,10 +24,8 @@ const categorySchema = new Schema({
     updatedAt: {
         type: Date
     },
-    isArchived: {
-        type: Boolean,
-        default: false
+    updatedBy: {
+        type: String
     }
 });
-
-module.exports = categorySchema;
+module.exports = RatingSchema;

@@ -1,7 +1,11 @@
 const mongoose = require("mongoose");
-
+const Schema = mongoose.Schema;
 const bookingSchema = new Schema({
     customerId: {
+        type: String,
+        required: true
+    },
+    expertId: {
         type: String,
         required: true
     },
@@ -55,4 +59,4 @@ const bookingSchema = new Schema({
     }
 });
 
-module.exports = booking = mongoose.model("booking", bookingSchema);
+module.exports = bookingSchema;
