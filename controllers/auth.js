@@ -20,7 +20,7 @@ exports.login = async (req, res) => {
     if (!result) {
         return res.status(404).json({ emailnotfound: "Email not found" });
     }
-    const isMatch = bcrypt.compare(password, result.password);
+    const isMatch = await bcrypt.compare(password, result.password);
     if (isMatch) {
         const payload = {
             id: user.id,
