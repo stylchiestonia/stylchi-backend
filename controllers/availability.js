@@ -1,6 +1,6 @@
 
 exports.createAvailabity = (req, res) => {
-
+    
 }
 
 exports.updateAvailability = (res, req) => {

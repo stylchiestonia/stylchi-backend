@@ -28,11 +28,19 @@ const bookingSchema = new Schema({
         enum: ['cash', 'creditcard'],
         required: true
     },
+    billingAmount: {
+        type: Number,
+        required: true
+    },
     time: {
         type: String,
         required: true
     },
     date: {
+        type: String,
+        required: true
+    },
+    location: {
         type: String,
         required: true
     },

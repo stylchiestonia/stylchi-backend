@@ -41,13 +41,25 @@ getAllExperts = () => {
         role: 'expert'
     });
 };
-// get expert
-getExpert = (expertId) => {
+// get user
+getCurrentUser = (userId, role) => {
     return expert = User.findOne({
-        id: expertId,
+        _id: mongoose.Types.ObjectId(userId),
         status: "active",
-        role: 'expert'
+        role: role
     });
+};
+
+findAndUpdateCurrentUser = async (user) => {
+    await User.findOneAndUpdate( { _id: user._id }, user, { new: true }, ( error, obj ) => {
+        if( error ) {
+            return error ;
+        }
+        return obj;
+    });
+   const newUser = await getCurrentUser(user._id, user.role);
+   return newUser;    
+
 };
 
 // check if user is expert
@@ -63,7 +75,7 @@ isUserExpert = (user) => {
 // check if user is active 
 isExpertActive = (expert) => {
     let result = User.findOne({
-        id: user.id,
+        _id: user.id,
         status: 'expert',
         role: 'active'
     });
@@ -133,5 +145,7 @@ module.exports = {
     deleteExpert,
     getUserByEmail,
     createUser,
-    getUserById
+    getUserById,
+    getCurrentUser,
+    findAndUpdateCurrentUser
 }

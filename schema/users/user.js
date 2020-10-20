@@ -68,35 +68,45 @@ const UserSchema = new Schema({
     venueName: {
         type: String
     },
-    address: {
         residential: {
             street: {
-                type: String
+                type: String,
+                default: ""           
             },
             number: {
-                type: Number
+                type: String,
+                default: null 
             },
             city: {
-                type: String
+                type: String,
+                default: ""
             },
             country: {
-                type: String
+                type: String,
+                default: "" 
             }
+        },
+        maxUpload:{
+            type: Number,
+            default: 5
         },
         venue: {
             street: {
-                type: String
+                type: String,
+                default: "" 
             },
             number: {
-                type: Number
+                type: String,
+                default: "" 
             },
             city: {
-                type: String
+                type: String,
+                default: "" 
             },
             country: {
-                type: String
+                type: String,
+                default: "" 
             }
-        }
     },
     about: {
         type: String

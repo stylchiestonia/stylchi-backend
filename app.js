@@ -2,11 +2,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
+const serverless = require('serverless-http');
 const routes = require("./routes/api/routes");
-const BookingSchema = require('./schema/booking/booking');
-const Booking = mongoose.model('bookings', BookingSchema);
 const app = express();
-const cors = require('cors')
+const cors = require('cors');
 app.use(cors())
 
 app.use(
@@ -31,5 +30,9 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 // Routes
 app.use("/api", routes);
+app.use('/.netlify/functions/server', router);  // path must route to lambda
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
+
+module.exports.handler = serverless(app);
+
