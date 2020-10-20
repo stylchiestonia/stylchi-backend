@@ -13,6 +13,7 @@ getImagesByUserId= (userId) => {
     return UserImage.find({
         userId: userId,
         isArchived: false
+        
     });
 };
 module.exports = {
