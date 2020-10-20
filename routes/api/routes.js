@@ -73,9 +73,10 @@ router.post('/expert/gallery/upload', upload.single('photo'), galleryController.
 // @access Public
 router.post('/expert/gallery', galleryController.getCurrentUserImages);
 
+
 router.get('/', (req, res) => {
-    res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.write('<h1>Hello from Express.js!</h1>');
-    res.end();
+    return res.status(200).json(
+        "hello"
+    );
   });
 module.exports = router;
