@@ -30,9 +30,8 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 // Routes
 app.use("/api", routes);
-app.use('/.netlify/functions/server', router);  // path must route to lambda
-const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`Server up and running on port ${port} !`));
+// const port = process.env.PORT || 5000;
+// app.listen(port, () => console.log(`Server up and running on port ${port} !`));
 
 module.exports.handler = serverless(app);
 
