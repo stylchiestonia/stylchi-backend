@@ -12,6 +12,7 @@ module.exports = passport => {
       expert.
       user.getUserById(jwt_payload.id)
         .then(user => {
+          console.log('---jwt_payload-----', jwt_payload);
           if (user) {
             return done(null, user);
           }

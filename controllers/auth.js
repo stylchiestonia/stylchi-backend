@@ -26,7 +26,7 @@ exports.login = async (req, res) => {
             id: user.id,
             email: user.email
         };
-        jwt.sign(
+        await jwt.sign(
             payload,
             keys.secretOrKey,
             {
