@@ -6,10 +6,10 @@ getAllBookings = () => {
     return Booking.find();
 };
 
-getPendingBookings = (expertId) => {
+getBookings = (expertId, status) => {
     return Booking.find({
         expertId: expertId,
-        status: 'pending'
+        status: status
     });
 }
 getUpcomingBookings = (expertId) => {
@@ -31,7 +31,7 @@ updateBooking = (booking, expertId) => {
     }).where('_id').equals(booking._id);
 };
 module.exports = {
-    getPendingBookings,
+    getBookings,
     getAllBookings,
     updateBooking,
     getPastBookings,

@@ -4,8 +4,7 @@ const User = mongoose.model('user', UserSchema);
 
 getUserByEmail = (email) => {
     return User.findOne({
-        email: email,
-        status: 'active',
+        email: email
     });
 };
 
@@ -18,16 +17,18 @@ getUserById= (id) => {
 
 createUser = (user) => {
     return User.create({
-        firstName: user.firstname,
-        lastName: user.lastname,
+        firstName: user.firstName,
+        lastName: user.lastName,
         email: user.email,
         password: user.password,
-        language: user.language,
-        phoneNumber: user.phonenumber,
-        allowContact: user.allowcontact,
+        lang: user.language,
+        phoneNumber: user.phoneNumber,
+        allowContact: user.allowContact,
         role: user.role,
         createdAt: Date.now(),
         status: 'active',
+        inReview: true,
+        isVerified: false
     });
     
 };
@@ -59,6 +60,15 @@ findAndUpdateCurrentUser = async (user) => {
     });
    const newUser = await getCurrentUser(user._id, user.role);
    return newUser;    
+
+};
+findAndUpdateCurrentUserId = async (user, userId) => {
+   return  await User.findOneAndUpdate( { _id: userId }, user, { new: true }, ( error, obj ) => {
+        if( error ) {
+            return error ;
+        }
+        return obj;
+    }); 
 
 };
 
@@ -147,5 +157,6 @@ module.exports = {
     createUser,
     getUserById,
     getCurrentUser,
-    findAndUpdateCurrentUser
+    findAndUpdateCurrentUser,
+    findAndUpdateCurrentUserId
 }

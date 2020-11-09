@@ -1,0 +1,6 @@
+runtime: nodejs12
+env: standard
+env_variables: 
+    MONGO_URI: "mongodb+srv://mahnoor_admin:123.prod.account@cluster0.xpsi4.mongodb.net/stylchi?retryWrites=true&w=majority"
+    SECRET_KEY: "D1967CC10A001F8B5E07359784E564DE2FE9AF328A97A7AB0C9B8C24BDEFBF11"
+    SG_API_KEY: "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"

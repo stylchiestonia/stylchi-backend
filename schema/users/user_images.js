@@ -5,9 +5,24 @@ const UserImageSchema = new Schema({
         type: String,
         required: true
     },
-    imageUrl: {
+    src: {
         type: String,
         required: true
+    },
+    thumbnail: {
+        type: String,
+        required: true
+    },
+    thumbnailWidth: {
+        type: Number,
+        default: 240
+    },
+    thumbnailHeight:  {
+        type: Number,
+        default: 240
+    },
+    caption:  {
+        type: String,
     },
     createdAt: {
         type: Date,

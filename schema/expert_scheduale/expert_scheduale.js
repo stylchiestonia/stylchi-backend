@@ -7,10 +7,7 @@ const expertSchedualeSchema = new Schema({
     },
     availability: [
         {
-            day: {
-                type: String,
-                required: true
-            },
+            day: [],
             from: { 
                 type: String,
                 default: '9:00 AM',
@@ -22,8 +19,7 @@ const expertSchedualeSchema = new Schema({
                 required: true
             },
             status: { 
-                type: String,
-                enum: ['available', 'unavailabe'],
+                type: Boolean,
                 required: true}
         }
     ],

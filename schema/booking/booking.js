@@ -21,11 +21,13 @@ const bookingSchema = new Schema({
     status: {
         type: String,
         enum: ['pending', 'upcoming', 'past'],
+        default: 'pending',
         required: true
     },
     payment: {
         type: String,
         enum: ['cash', 'creditcard'],
+        default: 'cash',
         required: true
     },
     billingAmount: {

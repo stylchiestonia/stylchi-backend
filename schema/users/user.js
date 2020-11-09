@@ -55,6 +55,10 @@ const UserSchema = new Schema({
         type: Boolean,
         default: false
     },
+    isVerified: {
+        type: Boolean,
+        default: false
+    },
     createdAt: {
         type: Date,
         default: Date.now
@@ -68,48 +72,81 @@ const UserSchema = new Schema({
     venueName: {
         type: String
     },
-        residential: {
-            street: {
-                type: String,
-                default: ""           
-            },
-            number: {
-                type: String,
-                default: null 
-            },
-            city: {
-                type: String,
-                default: ""
-            },
-            country: {
-                type: String,
-                default: "" 
-            }
+    homeExpert: {
+        type: Boolean
+    },
+    salonExpert: {
+        type: Boolean
+    },
+    residential: {
+        street: {
+            type: String,
+            default: ""
         },
-        maxUpload:{
-            type: Number,
-            default: 5
+        number: {
+            type: String,
+            default: null
         },
-        venue: {
-            street: {
-                type: String,
-                default: "" 
-            },
-            number: {
-                type: String,
-                default: "" 
-            },
-            city: {
-                type: String,
-                default: "" 
-            },
-            country: {
-                type: String,
-                default: "" 
-            }
+        city: {
+            type: String,
+            default: ""
+        },
+        country: {
+            type: String,
+            default: ""
+        },
+        postal: {
+            type: String,
+            default: ""
+        }
+    },
+    inReview: {
+        type: String,
+        default: true
+    },
+    maxUpload: {
+        type: Number,
+        default: 5
+    },
+    venue: {
+        street: {
+            type: String,
+            default: ""
+        },
+        number: {
+            type: String,
+            default: ""
+        },
+        city: {
+            type: String,
+            default: ""
+        },
+        country: {
+            type: String,
+            default: ""
+        },
+        postal: {
+            type: String,
+            default: ""
+        }
     },
     about: {
         type: String
+    },
+    ibanNumber: {
+        type: String
+    },
+    accountNumber: {
+        type: String
+    },
+    bankName: {
+
+    },
+    bankAddress: {
+
+    },
+    swiftCode: {
+
     }
 });
 module.exports = UserSchema;

@@ -5,14 +5,13 @@ const user = require('../models/users/user');
 const keys = require("../config/keys");
 const opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
-opts.secretOrKey = keys.secretOrKey;
+opts.secretOrKey = process.env.SECRET_KEY;
 module.exports = passport => {
   passport.use(
     new JwtStrategy(opts, (jwt_payload, done) => {
-      expert.
+
       user.getUserById(jwt_payload.id)
         .then(user => {
-          console.log('---jwt_payload-----', jwt_payload);
           if (user) {
             return done(null, user);
           }

@@ -1,7 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const serviceSchema = new Schema({
-    categoryName: {
+const ServiceSchema = new Schema({
+    categoryEng: {
+        type: String,
+        required: true
+    },
+    categoryEst: {
         type: String,
         required: true
     },
@@ -25,10 +29,6 @@ const serviceSchema = new Schema({
         type: String,
         required: true
     },
-    type: {
-        type: String,
-        required: true
-    },
     createdBy: {
         type: String,
         required: true
@@ -49,4 +49,4 @@ const serviceSchema = new Schema({
     }
 });
 
-module.exports = service = mongoose.model("service", serviceSchema);
+module.exports = ServiceSchema;

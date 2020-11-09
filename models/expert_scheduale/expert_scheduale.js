@@ -18,9 +18,88 @@ findAndUpdateExpertScheduale = async (scheduale) => {
    return updateScheduale;    
 
 };
+
+createExpertSchedualeOnRegister = async (expertId) => {
+    return expertScheduale.create({
+        expertId: expertId,
+        availability: [
+            {
+                day: [
+                {en: 'Monday'},
+                {est: "esmaspäev"},
+                {rus: "Понедельник"} 
+            ],
+                from: '9:00 AM',
+                to: '9:00 PM',
+                status: 1
+            },
+            {
+                day: [
+                    {en: 'Tuesday'},
+                    {est: "teisipäev"},
+                    {rus: "Вторник"} 
+                ],
+                from: '9:00 AM',
+                to: '9:00 PM',
+                status: 1
+            },
+            {
+                day: [
+                    {en: 'Wednesday'},
+                    {est: "kolmapäev"},
+                    {rus: "Среда"} 
+                ],
+                from: '9:00 AM',
+                to: '9:00 PM',
+                status: 1
+            },
+            {
+                day: [
+                    {en: 'Thursday'},
+                    {est: "neljapäev"},
+                    {rus: "Четверг"} 
+                ],
+                from: '9:00 AM',
+                to: '9:00 PM',
+                status: 1
+            },
+            {
+                day: [
+                    {en: 'Friday'},
+                    {est: "reede"},
+                    {rus: "Пятница"} 
+                ],
+                from: '9:00 AM',
+                to: '9:00 PM',
+                status: 1
+            },
+            {
+                day: [
+                    {en: 'Saturday'},
+                    {est: "laupäev"},
+                    {rus: "Суббота"} 
+                ],
+                from: '9:00 AM',
+                to: '9:00 PM',
+                status: 1
+            },
+            {
+                day: [
+                    {en: 'Sunday'},
+                    {est: "pühapäev"},
+                    {rus: "Воскресенье"} 
+                ],
+                from: '9:00 AM',
+                to: '9:00 PM',
+                status: 1
+            }
+        ],
+        createdBy: expertId
+        });
+  
+}
 module.exports = {
     getExpertScheduale,
-    updateCategory,
-    getAllCategories,
-    findAndUpdateExpertScheduale
+    findAndUpdateExpertScheduale,
+    createExpertSchedualeOnRegister
 }

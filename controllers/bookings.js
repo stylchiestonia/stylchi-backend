@@ -5,11 +5,11 @@ exports.createBooking = (req, res) => {
 }
 
 exports.updateBooking = (req, res) => {
-    
+
 }
 
 exports.deleteBooking = (req, res) => {
-    
+
 }
 
 exports.getAllBookings = async (req, res) => {
@@ -19,24 +19,29 @@ exports.getAllBookings = async (req, res) => {
 }
 
 exports.getBookings = async (req, res) => {
-    const status = req.body.status;
-    const expertId = req.body.expert_id;
-    let bookings;
-    if( status === 'pending' ) {
-        bookings = await bookingModel.getPendingBookings(expertId);
-    } else if (status === 'upcoming') {
-        bookings = await bookingModel.getUpcomingBookings(expertId);
-    } else if (status === 'past') {
-        bookings = await bookingModel.getPastBookings(expertId);
+    try {
+        const status = req.body.status;
+        const user = req.user;
+        let bookings;
+        bookings = await bookingModel.getBookings(user._id, status);
+        return res.status(200).json(bookings);
+    } catch (e) {
+        console.log(e);
+        return res.status(400);
     }
-    return res.status(200).json( bookings );
 }
 
 exports.updateBooking = async (req, res) => {
-    const expertId = req.body.expert_id;
-    const booking = req.body.booking;
-    await bookingModel.updateBooking(booking, expertId);
-    const bookings = await bookingModel.getPendingBookings(expertId);
-    console.log('--------in controller---', bookings);
-    return res.status(200).json( bookings );
+    try {
+        const status = req.body.status;
+        const user = req.user;
+        const booking = req.body.booking;
+        await bookingModel.updateBooking(booking, user._id);
+        const bookings = await bookingModel.getBookings(user._id, status);
+        return res.status(200).json(bookings);
+    } catch (e) {
+        console.log(e);
+        return res.status(400);
+    }
+
 }
